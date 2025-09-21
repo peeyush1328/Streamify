@@ -11,7 +11,7 @@ export const getRecommendedUsers = async (req, res) => {
         { _id: { $nin: user.friends } },
         { isOnboarded: true },
       ],
-    }).select("username email profilePicture");
+    }).select("fullName email profilePic nativeLanguage learningLanguage");
     res.status(200).json(recommendedUsers);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
